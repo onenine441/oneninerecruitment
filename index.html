@@ -28,20 +28,18 @@ html{
 }
 
 body{
-    font-family:"Inter",sans-serif;
-    color:#111827;
-
+    font-family:"Inter",Arial,sans-serif;
+    color:#101828;
     background:
-    radial-gradient(circle at 5% 10%,rgba(255,107,0,.13),transparent 25%),
-    radial-gradient(circle at 95% 25%,rgba(255,157,46,.10),transparent 28%),
-    linear-gradient(180deg,#eef4fa 0%,#ffffff 50%,#eef3f8 100%);
-
-    overflow-x:hidden;
+        radial-gradient(circle at 5% 10%,rgba(255,50,30,.10),transparent 28%),
+        radial-gradient(circle at 95% 20%,rgba(0,65,190,.12),transparent 30%),
+        linear-gradient(180deg,#eef5fc 0%,#ffffff 45%,#eef3f9 100%);
     line-height:1.6;
+    overflow-x:hidden;
 }
 
 img{
-    width:100%;
+    max-width:100%;
     display:block;
 }
 
@@ -55,23 +53,21 @@ a{
     margin:auto;
 }
 
-
 /* =========================
-   GLASS
+   GLASS EFFECT
 ========================= */
 
 .glass{
     background:rgba(255,255,255,.62);
-
-    border:1px solid rgba(255,255,255,.85);
+    border:1px solid rgba(255,255,255,.90);
 
     box-shadow:
-        0 20px 60px rgba(25,45,70,.12);
+        0 20px 60px rgba(20,40,70,.12),
+        inset 0 1px 0 rgba(255,255,255,.75);
 
     backdrop-filter:blur(24px) saturate(150%);
     -webkit-backdrop-filter:blur(24px) saturate(150%);
 }
-
 
 /* =========================
    NAVBAR
@@ -79,21 +75,21 @@ a{
 
 .navbar{
     position:fixed;
-    top:18px;
+    z-index:1000;
+
+    top:16px;
     left:50%;
     transform:translateX(-50%);
 
     width:min(1180px,92%);
 
-    padding:12px 17px;
+    padding:12px 18px;
 
     border-radius:25px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    z-index:100;
 }
 
 .logo{
@@ -106,30 +102,30 @@ a{
     font-size:20px;
 }
 
-.logo-mark{
-    width:42px;
-    height:42px;
+.logo-box{
+    width:43px;
+    height:43px;
 
     border-radius:14px;
 
     display:grid;
     place-items:center;
 
-    color:#fff;
+    color:white;
 
     background:
-    linear-gradient(135deg,#ff6500,#ff9b2f);
+        linear-gradient(
+            135deg,
+            #003dbb 0%,
+            #005eea 55%,
+            #ef241c 100%
+        );
 
-    box-shadow:
-    0 10px 25px rgba(255,107,0,.30);
-}
-
-.logo-name{
-    color:#111827;
+    box-shadow:0 10px 25px rgba(0,60,190,.25);
 }
 
 .logo-name span{
-    color:#ff6b00;
+    color:#ef241c;
 }
 
 .nav-links{
@@ -139,29 +135,33 @@ a{
     color:#475467;
 
     font-size:14px;
-    font-weight:600;
+    font-weight:700;
 }
 
 .nav-links a{
-    transition:.2s;
+    transition:.25s;
 }
 
 .nav-links a:hover{
-    color:#ff6b00;
+    color:#003dbb;
 }
+
+/* =========================
+   BUTTONS
+========================= */
 
 .btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
 
-    gap:9px;
+    gap:8px;
 
     padding:13px 21px;
 
     border-radius:999px;
 
-    border:none;
+    border:0;
 
     font-size:14px;
     font-weight:800;
@@ -171,31 +171,34 @@ a{
     transition:.25s;
 }
 
-.btn-orange{
+.btn-primary{
     color:#fff;
 
     background:
-    linear-gradient(135deg,#ff6500,#ff9227);
+        linear-gradient(
+            135deg,
+            #003dbb 0%,
+            #005eea 55%,
+            #ef241c 100%
+        );
 
-    box-shadow:
-    0 12px 30px rgba(255,107,0,.28);
+    box-shadow:0 12px 30px rgba(0,61,187,.25);
 }
 
-.btn-orange:hover{
+.btn-primary:hover{
     transform:translateY(-2px);
 
     box-shadow:
-    0 17px 35px rgba(255,107,0,.35);
+        0 17px 35px rgba(0,61,187,.32);
 }
 
 .btn-light{
-    background:rgba(255,255,255,.75);
+    background:rgba(255,255,255,.80);
 
-    border:1px solid #e6eaf0;
+    border:1px solid #e4e9f0;
 
     color:#344054;
 }
-
 
 /* =========================
    HERO
@@ -209,7 +212,7 @@ a{
     display:grid;
 
     grid-template-columns:
-    1fr 1.05fr;
+        1fr 1.08fr;
 
     gap:40px;
 
@@ -220,7 +223,6 @@ a{
     display:inline-flex;
 
     align-items:center;
-
     gap:8px;
 
     padding:8px 14px;
@@ -228,7 +230,6 @@ a{
     border-radius:999px;
 
     font-size:12px;
-
     font-weight:800;
 
     color:#475467;
@@ -242,35 +243,39 @@ a{
 
     border-radius:50%;
 
-    background:#22b573;
+    background:#20b26b;
 
     box-shadow:
-    0 0 0 5px rgba(34,181,115,.12);
+        0 0 0 5px rgba(32,178,107,.12);
 }
 
 .hero h1{
     font-family:"Poppins";
 
     font-size:
-    clamp(42px,6vw,72px);
+        clamp(42px,6vw,70px);
 
     line-height:1.02;
 
     letter-spacing:-.045em;
 }
 
-.orange{
-    color:#ff6b00;
+.blue{
+    color:#003dbb;
 }
 
-.hero-description{
-    max-width:610px;
+.red{
+    color:#ef241c;
+}
+
+.hero-text{
+    max-width:620px;
 
     color:#667085;
 
     font-size:18px;
 
-    margin:23px 0 29px;
+    margin:22px 0 29px;
 }
 
 .hero-buttons{
@@ -280,6 +285,8 @@ a{
 
     flex-wrap:wrap;
 }
+
+/* HERO IMAGE */
 
 .hero-image{
     min-height:500px;
@@ -292,22 +299,25 @@ a{
 }
 
 .hero-image img{
+    width:100%;
     height:100%;
 
     object-fit:cover;
 }
 
-.hero-overlay{
+.hero-image::after{
+    content:"";
+
     position:absolute;
 
     inset:0;
 
     background:
-    linear-gradient(
-        180deg,
-        transparent 45%,
-        rgba(0,0,0,.25)
-    );
+        linear-gradient(
+            180deg,
+            transparent 45%,
+            rgba(0,0,0,.30)
+        );
 }
 
 .floating-card{
@@ -319,12 +329,12 @@ a{
 
     border-radius:20px;
 
-    background:rgba(255,255,255,.80);
+    background:rgba(255,255,255,.84);
 
     border:1px solid rgba(255,255,255,.9);
 
     box-shadow:
-    0 18px 45px rgba(20,35,55,.16);
+        0 18px 45px rgba(20,35,55,.16);
 
     backdrop-filter:blur(18px);
 }
@@ -344,7 +354,7 @@ a{
 
     font-family:"Poppins";
 
-    font-size:18px;
+    font-size:17px;
 }
 
 .floating-card small{
@@ -353,9 +363,8 @@ a{
     font-size:11px;
 }
 
-
 /* =========================
-   HERO STATS
+   STATS
 ========================= */
 
 .stats{
@@ -364,7 +373,7 @@ a{
     display:grid;
 
     grid-template-columns:
-    repeat(4,1fr);
+        repeat(4,1fr);
 
     gap:12px;
 }
@@ -378,7 +387,7 @@ a{
 .stat strong{
     display:block;
 
-    color:#ff6b00;
+    color:#003dbb;
 
     font-family:"Poppins";
 
@@ -393,7 +402,6 @@ a{
     font-size:11px;
 }
 
-
 /* =========================
    SECTIONS
 ========================= */
@@ -403,13 +411,13 @@ section{
 }
 
 .section-heading{
-    max-width:680px;
+    max-width:720px;
 
     margin-bottom:36px;
 }
 
 .section-tag{
-    color:#ff6b00;
+    color:#ef241c;
 
     font-size:12px;
 
@@ -426,7 +434,7 @@ section{
     font-family:"Poppins";
 
     font-size:
-    clamp(30px,4vw,46px);
+        clamp(30px,4vw,46px);
 
     line-height:1.1;
 }
@@ -437,21 +445,20 @@ section{
     color:#667085;
 }
 
-
 /* =========================
    BENEFITS
 ========================= */
 
-.benefits{
+.benefit-grid{
     display:grid;
 
     grid-template-columns:
-    repeat(4,1fr);
+        repeat(4,1fr);
 
     gap:16px;
 }
 
-.benefit-card{
+.card{
     padding:25px;
 
     border-radius:27px;
@@ -466,23 +473,23 @@ section{
     display:grid;
     place-items:center;
 
-    color:#ff6b00;
+    color:#003dbb;
 
     font-size:21px;
 
     background:
-    linear-gradient(
-        135deg,
-        #fff0e3,
-        #ffffff
-    );
+        linear-gradient(
+            135deg,
+            #eaf2ff,
+            #ffffff
+        );
 
     border:1px solid #fff;
 
     margin-bottom:17px;
 }
 
-.benefit-card h3{
+.card h3{
     font-family:"Poppins";
 
     font-size:17px;
@@ -490,45 +497,45 @@ section{
     margin-bottom:7px;
 }
 
-.benefit-card p{
+.card p{
     color:#667085;
 
     font-size:13.5px;
 }
 
-
 /* =========================
-   WHY JOIN
+   DELIVERY SECTION
 ========================= */
 
 .two-column{
     display:grid;
 
     grid-template-columns:
-    1.05fr .95fr;
+        1.05fr .95fr;
 
     gap:22px;
 
     align-items:stretch;
 }
 
-.image-card{
+.photo-card{
     min-height:450px;
 
-    overflow:hidden;
-
     border-radius:30px;
+
+    overflow:hidden;
 
     position:relative;
 }
 
-.image-card img{
+.photo-card img{
+    width:100%;
     height:100%;
 
     object-fit:cover;
 }
 
-.image-caption{
+.photo-caption{
     position:absolute;
 
     left:20px;
@@ -539,18 +546,18 @@ section{
 
     border-radius:20px;
 
-    background:rgba(255,255,255,.78);
+    background:rgba(255,255,255,.82);
 
     border:1px solid rgba(255,255,255,.9);
 
     backdrop-filter:blur(16px);
 }
 
-.image-caption strong{
+.photo-caption strong{
     font-family:"Poppins";
 }
 
-.image-caption span{
+.photo-caption span{
     display:block;
 
     color:#667085;
@@ -558,13 +565,21 @@ section{
     font-size:13px;
 }
 
-.check-list{
+.feature-card{
     padding:30px;
 
     border-radius:30px;
 }
 
-.check-list ul{
+.feature-card h2{
+    font-family:"Poppins";
+
+    font-size:34px;
+
+    margin-top:8px;
+}
+
+.check-list{
     list-style:none;
 
     display:grid;
@@ -600,23 +615,23 @@ section{
 
     place-items:center;
 
-    color:#20b26b;
+    color:#003dbb;
 
-    background:#e9fff4;
+    background:#eaf2ff;
 }
 
-.gallery{
+.small-gallery{
     display:grid;
 
     grid-template-columns:
-    1fr 1fr;
+        1fr 1fr;
 
     gap:13px;
 
     margin-top:25px;
 }
 
-.gallery img{
+.small-gallery img{
     height:145px;
 
     object-fit:cover;
@@ -624,63 +639,55 @@ section{
     border-radius:20px;
 }
 
-
 /* =========================
    PAYOUT
 ========================= */
 
-.payout{
+.payout-section{
     display:grid;
 
     grid-template-columns:
-    .9fr 1.1fr;
+        .85fr 1.15fr;
 
     gap:24px;
 
     align-items:center;
 }
 
-.payout-box{
+.payout-info{
     padding:40px;
 
     border-radius:31px;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(255,255,255,.8),
-        rgba(255,244,233,.78)
-    );
 }
 
 .payout-number{
     font-family:"Poppins";
 
-    font-size:78px;
+    font-size:82px;
 
     line-height:1;
 
-    color:#ff6b00;
+    color:#003dbb;
 
     font-weight:800;
 
     margin-top:10px;
 }
 
-.payout-box h3{
+.payout-info h3{
     font-family:"Poppins";
 
-    font-size:27px;
+    font-size:28px;
 
-    margin:7px 0;
+    margin:5px 0;
 }
 
-.payout-box p{
+.payout-info p{
     color:#667085;
 }
 
 .payout-image{
-    height:350px;
+    height:380px;
 
     border-radius:31px;
 
@@ -688,11 +695,11 @@ section{
 }
 
 .payout-image img{
+    width:100%;
     height:100%;
 
     object-fit:cover;
 }
-
 
 /* =========================
    APPLICATION
@@ -706,18 +713,18 @@ section{
     display:grid;
 
     grid-template-columns:
-    .82fr 1.18fr;
+        .82fr 1.18fr;
 }
 
 .application-info{
     padding:42px;
 
     background:
-    linear-gradient(
-        145deg,
-        rgba(255,107,0,.10),
-        rgba(255,255,255,.45)
-    );
+        linear-gradient(
+            145deg,
+            rgba(0,61,187,.08),
+            rgba(255,255,255,.5)
+        );
 }
 
 .application-info h3{
@@ -762,14 +769,14 @@ section{
 
     place-items:center;
 
-    background:#ff6b00;
+    background:#003dbb;
 
     color:#fff;
 
     font-size:12px;
 }
 
-.application-form{
+.form{
     padding:42px;
 
     background:rgba(255,255,255,.58);
@@ -779,7 +786,7 @@ section{
     display:grid;
 
     grid-template-columns:
-    1fr 1fr;
+        1fr 1fr;
 
     gap:14px;
 }
@@ -810,7 +817,7 @@ textarea{
 
     border:1px solid #dfe5ec;
 
-    background:rgba(255,255,255,.78);
+    background:rgba(255,255,255,.82);
 
     outline:none;
 
@@ -821,10 +828,10 @@ textarea{
 
 input:focus,
 textarea:focus{
-    border-color:#ff6b00;
+    border-color:#003dbb;
 
     box-shadow:
-    0 0 0 4px rgba(255,107,0,.08);
+        0 0 0 4px rgba(0,61,187,.08);
 }
 
 textarea{
@@ -861,10 +868,8 @@ textarea{
     width:auto;
 }
 
-.submit{
+.submit-button{
     width:100%;
-
-    margin-top:3px;
 }
 
 .form-note{
@@ -877,21 +882,20 @@ textarea{
     margin-top:9px;
 }
 
-
 /* =========================
    HOW IT WORKS
 ========================= */
 
-.how-grid{
+.steps-grid{
     display:grid;
 
     grid-template-columns:
-    repeat(4,1fr);
+        repeat(4,1fr);
 
     gap:15px;
 }
 
-.how-card{
+.step-card{
     padding:25px;
 
     border-radius:26px;
@@ -899,7 +903,7 @@ textarea{
     text-align:center;
 }
 
-.how-icon{
+.step-icon{
     width:56px;
     height:56px;
 
@@ -911,9 +915,9 @@ textarea{
 
     margin:0 auto 15px;
 
-    background:#fff0e4;
+    background:#eaf2ff;
 
-    color:#ff6b00;
+    color:#003dbb;
 
     font-family:"Poppins";
 
@@ -922,20 +926,19 @@ textarea{
     font-weight:800;
 }
 
-.how-card h3{
+.step-card h3{
     font-family:"Poppins";
 
     font-size:16px;
 }
 
-.how-card p{
+.step-card p{
     color:#667085;
 
     font-size:13px;
 
     margin-top:6px;
 }
-
 
 /* =========================
    CONTACT / TEAM
@@ -945,7 +948,7 @@ textarea{
     display:grid;
 
     grid-template-columns:
-    repeat(4,1fr);
+        repeat(4,1fr);
 
     gap:16px;
 }
@@ -969,21 +972,21 @@ textarea{
     place-items:center;
 
     background:
-    linear-gradient(
-        135deg,
-        #fff0e3,
-        #ffffff
-    );
+        linear-gradient(
+            135deg,
+            #eaf2ff,
+            #fff
+        );
 
     margin-bottom:16px;
 
     font-size:20px;
 }
 
-.team-role{
+.role{
     display:inline-block;
 
-    color:#ff6b00;
+    color:#ef241c;
 
     font-size:10px;
 
@@ -1025,10 +1028,10 @@ textarea{
 }
 
 .team-card a:hover{
-    color:#ff6b00;
+    color:#003dbb;
 }
 
-.contact-strip{
+.contact-bar{
     margin-top:18px;
 
     padding:22px 25px;
@@ -1038,12 +1041,12 @@ textarea{
     display:grid;
 
     grid-template-columns:
-    repeat(4,1fr);
+        repeat(4,1fr);
 
     gap:18px;
 }
 
-.contact-strip div{
+.contact-bar div{
     display:flex;
 
     flex-direction:column;
@@ -1051,22 +1054,21 @@ textarea{
     gap:3px;
 }
 
-.contact-strip strong{
+.contact-bar strong{
     font-family:"Poppins";
 
-    color:#ff6b00;
+    color:#003dbb;
 
     font-size:12px;
 }
 
-.contact-strip span{
+.contact-bar span{
     color:#475467;
 
     font-size:12px;
 
     word-break:break-word;
 }
-
 
 /* =========================
    FOOTER
@@ -1091,8 +1093,7 @@ footer{
 
     color:#fff;
 
-    background:
-    rgba(16,24,40,.94);
+    background:rgba(8,18,38,.96);
 
     border:1px solid rgba(255,255,255,.18);
 }
@@ -1109,7 +1110,6 @@ footer{
     margin-top:5px;
 }
 
-
 /* =========================
    RESPONSIVE
 ========================= */
@@ -1122,28 +1122,19 @@ footer{
 
     .hero-grid,
     .two-column,
-    .payout,
+    .payout-section,
     .application{
         grid-template-columns:1fr;
     }
 
-    .benefits{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .stats{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .how-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
+    .benefit-grid,
     .team-grid{
         grid-template-columns:1fr 1fr;
     }
 
-    .contact-strip{
+    .stats,
+    .steps-grid,
+    .contact-bar{
         grid-template-columns:1fr 1fr;
     }
 
@@ -1152,12 +1143,10 @@ footer{
     }
 }
 
-
 @media(max-width:600px){
 
     .navbar{
         top:10px;
-
         width:94%;
     }
 
@@ -1171,7 +1160,7 @@ footer{
         font-size:17px;
     }
 
-    .logo-mark{
+    .logo-box{
         width:37px;
         height:37px;
     }
@@ -1184,33 +1173,29 @@ footer{
         font-size:43px;
     }
 
-    .hero-description{
+    .hero-text{
         font-size:16px;
-    }
-
-    .hero-image{
-        min-height:350px;
     }
 
     section{
         padding:65px 0;
     }
 
-    .benefits,
+    .benefit-grid,
     .stats,
-    .how-grid,
+    .steps-grid,
     .team-grid,
-    .contact-strip,
+    .contact-bar,
     .form-row{
         grid-template-columns:1fr;
     }
 
     .application-info,
-    .application-form{
+    .form{
         padding:27px 21px;
     }
 
-    .payout-box{
+    .payout-info{
         padding:30px;
     }
 
@@ -1219,7 +1204,7 @@ footer{
     }
 
     .payout-image{
-        height:280px;
+        height:300px;
     }
 
     .footer{
@@ -1237,19 +1222,19 @@ footer{
 
 
 <!-- =========================
-     NAVIGATION
+     NAVBAR
 ========================= -->
 
 <header class="navbar glass">
 
     <a href="#home" class="logo">
 
-        <div class="logo-mark">
+        <div class="logo-box">
             O9
         </div>
 
         <div class="logo-name">
-            onenine <span>Logistics</span>
+            one<span>nine</span> Logistics
         </div>
 
     </a>
@@ -1276,8 +1261,8 @@ footer{
     </nav>
 
 
-    <a href="#apply" class="btn btn-orange">
-        WhatsApp Apply →
+    <a href="#apply" class="btn btn-primary">
+        Apply Now →
     </a>
 
 </header>
@@ -1311,18 +1296,20 @@ footer{
 
         Become a
 
-        <span class="orange">
+        <span class="blue">
             OneNine
         </span>
 
         <br>
 
-        Delivery Partner
+        <span class="red">
+            Delivery Partner
+        </span>
 
     </h1>
 
 
-    <p class="hero-description">
+    <p class="hero-text">
 
         Deliver smarter. Earn more.
 
@@ -1336,19 +1323,12 @@ footer{
 
     <div class="hero-buttons">
 
-        <a href="#apply"
-           class="btn btn-orange">
-
+        <a href="#apply" class="btn btn-primary">
             Delivery Partner Bano →
-
         </a>
 
-
-        <a href="#why"
-           class="btn btn-light">
-
+        <a href="#why" class="btn btn-light">
             Why OneNine?
-
         </a>
 
     </div>
@@ -1413,16 +1393,30 @@ footer{
 
 
 
+<!-- TRUCK PHOTO -->
+
 <div class="hero-image glass">
 
     <img
-    src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=85"
-    alt="Logistics delivery vehicle">
-
-    <div class="hero-overlay"></div>
+        src="onenine-trucks.png"
+        alt="OneNine Logistics Trucks"
+    >
 
 
     <div class="floating-card left">
+
+        <strong>
+            OneNine Logistics
+        </strong>
+
+        <small>
+            Professional delivery network
+        </small>
+
+    </div>
+
+
+    <div class="floating-card right">
 
         <strong>
             15 Days Payout
@@ -1434,19 +1428,6 @@ footer{
 
     </div>
 
-
-    <div class="floating-card right">
-
-        <strong>
-            OneNine Rider
-        </strong>
-
-        <small>
-            Professional delivery network
-        </small>
-
-    </div>
-
 </div>
 
 
@@ -1457,116 +1438,116 @@ footer{
 
 
 <!-- =========================
-     BENEFITS
+     WHY ONE NINE
 ========================= -->
 
 <section id="why">
 
 <div class="container">
 
-<div class="section-heading">
+    <div class="section-heading">
 
-    <span class="section-tag">
-        Why OneNine
-    </span>
+        <span class="section-tag">
+            Why OneNine
+        </span>
 
-    <h2>
-        Riders ke liye simple,
-        flexible aur professional.
-    </h2>
+        <h2>
+            Riders ke liye simple,
+            flexible aur professional.
+        </h2>
 
-    <p>
-        OneNine Logistics ke saath aapko
-        clear process, supportive team aur
-        predictable payout cycle milta hai.
-    </p>
+        <p>
+            OneNine Logistics ke saath aapko
+            clear process, supportive team aur
+            predictable payout cycle milta hai.
+        </p>
 
-</div>
-
-
-
-<div class="benefits">
-
-
-<div class="benefit-card glass">
-
-    <div class="icon">
-        ₹
     </div>
 
-    <h3>
-        15 Days Payout
-    </h3>
-
-    <p>
-        Daily payout ki jagah fixed
-        15-day payout cycle ke saath
-        better financial planning.
-    </p>
-
-</div>
 
 
+    <div class="benefit-grid">
 
-<div class="benefit-card glass">
 
-    <div class="icon">
-        ◷
+        <div class="card glass">
+
+            <div class="icon">
+                ₹
+            </div>
+
+            <h3>
+                15 Days Payout
+            </h3>
+
+            <p>
+                Daily payout ki jagah fixed
+                15-day payout cycle ke saath
+                better financial planning.
+            </p>
+
+        </div>
+
+
+
+        <div class="card glass">
+
+            <div class="icon">
+                ◷
+            </div>
+
+            <h3>
+                Flexible Work
+            </h3>
+
+            <p>
+                Apni availability ke hisaab se
+                delivery schedule manage karein.
+            </p>
+
+        </div>
+
+
+
+        <div class="card glass">
+
+            <div class="icon">
+                ✓
+            </div>
+
+            <h3>
+                Safety First
+            </h3>
+
+            <p>
+                Rider safety aur support ko
+                priority dene wala professional
+                network.
+            </p>
+
+        </div>
+
+
+
+        <div class="card glass">
+
+            <div class="icon">
+                ↗
+            </div>
+
+            <h3>
+                Growth Opportunity
+            </h3>
+
+            <p>
+                Performance ke saath apni
+                earning aur experience ko
+                grow karein.
+            </p>
+
+        </div>
+
+
     </div>
-
-    <h3>
-        Flexible Work
-    </h3>
-
-    <p>
-        Apni availability ke hisaab se
-        delivery schedule manage karein.
-    </p>
-
-</div>
-
-
-
-<div class="benefit-card glass">
-
-    <div class="icon">
-        ✓
-    </div>
-
-    <h3>
-        Safety First
-    </h3>
-
-    <p>
-        Rider safety aur support ko
-        priority dene wala professional
-        network.
-    </p>
-
-</div>
-
-
-
-<div class="benefit-card glass">
-
-    <div class="icon">
-        ↗
-    </div>
-
-    <h3>
-        Growth Opportunity
-    </h3>
-
-    <p>
-        Performance ke saath apni
-        earning aur experience ko
-        grow karein.
-    </p>
-
-</div>
-
-
-</div>
 
 </div>
 
@@ -1575,7 +1556,7 @@ footer{
 
 
 <!-- =========================
-     DELIVERY / LOGISTICS
+     DELIVERY PARTNER
 ========================= -->
 
 <section>
@@ -1583,104 +1564,110 @@ footer{
 <div class="container two-column">
 
 
-<div class="image-card glass">
+    <!-- DELIVERY BOY PHOTO -->
 
-    <img
-    src="https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=1200&q=85"
-    alt="Delivery rider">
+    <div class="photo-card glass">
 
-    <div class="image-caption">
+        <img
+            src="onenine-delivery-partner.png"
+            alt="OneNine Delivery Partner"
+        >
 
-        <strong>
-            Deliver with confidence.
-        </strong>
 
-        <span>
-            Professional rider experience
-            with OneNine.
+        <div class="photo-caption">
+
+            <strong>
+                Deliver with confidence.
+            </strong>
+
+            <span>
+                Professional rider experience
+                with OneNine.
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="feature-card glass">
+
+        <span class="section-tag">
+            Join OneNine
         </span>
 
-    </div>
 
-</div>
-
-
-
-<div class="check-list glass">
-
-    <span class="section-tag">
-        Join OneNine
-    </span>
-
-    <h2 style="font-size:34px;">
-        Aapko kya milega?
-    </h2>
+        <h2>
+            Aapko kya milega?
+        </h2>
 
 
-    <ul>
+        <ul class="check-list">
 
-        <li>
-            <span class="check">
-                ✓
-            </span>
+            <li>
+                <span class="check">
+                    ✓
+                </span>
 
-            Attractive earning opportunity
-        </li>
-
-
-        <li>
-            <span class="check">
-                ✓
-            </span>
-
-            Flexible work hours
-        </li>
+                Attractive earning opportunity
+            </li>
 
 
-        <li>
-            <span class="check">
-                ✓
-            </span>
+            <li>
+                <span class="check">
+                    ✓
+                </span>
 
-            Growing logistics network
-        </li>
-
-
-        <li>
-            <span class="check">
-                ✓
-            </span>
-
-            Easy registration process
-        </li>
+                Flexible work hours
+            </li>
 
 
-        <li>
-            <span class="check">
-                ✓
-            </span>
+            <li>
+                <span class="check">
+                    ✓
+                </span>
 
-            Dedicated support team
-        </li>
+                Growing logistics network
+            </li>
 
-    </ul>
+
+            <li>
+                <span class="check">
+                    ✓
+                </span>
+
+                Easy registration process
+            </li>
+
+
+            <li>
+                <span class="check">
+                    ✓
+                </span>
+
+                Dedicated support team
+            </li>
+
+        </ul>
 
 
 
-    <div class="gallery">
+        <div class="small-gallery">
 
-        <img
-        src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
-        alt="Logistics warehouse">
+            <img
+                src="onenine-trucks.png"
+                alt="OneNine Trucks"
+            >
 
+            <img
+                src="onenine-delivery-partner.png"
+                alt="OneNine Delivery Partner"
+            >
 
-        <img
-        src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=800&q=80"
-        alt="Delivery logistics">
+        </div>
 
     </div>
-
-</div>
 
 
 </div>
@@ -1695,44 +1682,46 @@ footer{
 
 <section id="payout">
 
-<div class="container payout">
+<div class="container payout-section">
 
 
-<div class="payout-box glass">
+    <div class="payout-info glass">
 
-    <span class="section-tag">
-        Payout Cycle
-    </span>
+        <span class="section-tag">
+            Payout Cycle
+        </span>
 
 
-    <div class="payout-number">
-        15
+        <div class="payout-number">
+            15
+        </div>
+
+
+        <h3>
+            Days Payout
+        </h3>
+
+
+        <p>
+            Apni earning ko better plan kijiye.
+            OneNine Logistics mein payout cycle
+            15 days ka hai.
+        </p>
+
     </div>
 
 
-    <h3>
-        Days Payout
-    </h3>
 
+    <!-- 15 DAYS PAYOUT PHOTO -->
 
-    <p>
-        Apni earning ko better plan kijiye.
+    <div class="payout-image glass">
 
-        OneNine Logistics mein payout
-        cycle 15 days ka hai.
-    </p>
+        <img
+            src="onenine-15-days-payout.png"
+            alt="OneNine 15 Days Payout"
+        >
 
-</div>
-
-
-
-<div class="payout-image glass">
-
-    <img
-    src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1200&q=85"
-    alt="Logistics delivery">
-
-</div>
+    </div>
 
 
 </div>
@@ -1742,262 +1731,263 @@ footer{
 
 
 <!-- =========================
-     APPLICATION
+     APPLICATION FORM
 ========================= -->
 
 <section id="apply">
 
 <div class="container">
 
+    <div class="section-heading">
 
-<div class="section-heading">
+        <span class="section-tag">
+            Application
+        </span>
 
-    <span class="section-tag">
-        Application
-    </span>
+        <h2>
+            Ready to join OneNine?
+        </h2>
 
-    <h2>
-        Ready to join OneNine?
-    </h2>
-
-    <p>
-        Apni basic details submit karein.
-        Application WhatsApp par recruiter
-        ko bheji jaayegi.
-    </p>
-
-</div>
-
-
-
-<div class="application glass">
-
-
-<div class="application-info">
-
-    <h3>
-        3 Simple Steps
-    </h3>
-
-    <p>
-        Application se onboarding tak
-        simple process.
-    </p>
-
-
-    <div class="steps">
-
-
-        <div class="step">
-
-            <span class="step-number">
-                1
-            </span>
-
-            Details form mein bhariye
-
-        </div>
-
-
-        <div class="step">
-
-            <span class="step-number">
-                2
-            </span>
-
-            WhatsApp par application bhejiye
-
-        </div>
-
-
-        <div class="step">
-
-            <span class="step-number">
-                3
-            </span>
-
-            Recruiter aapse contact karega
-
-        </div>
-
+        <p>
+            Apni basic details submit karein.
+            Application WhatsApp par recruiter
+            ko bheji jaayegi.
+        </p>
 
     </div>
 
-</div>
 
 
+    <div class="application glass">
 
-<div class="application-form">
 
-<form id="applicationForm">
+        <div class="application-info">
 
+            <h3>
+                3 Simple Steps
+            </h3>
 
-<div class="form-group">
+            <p>
+                Application se onboarding tak
+                simple process.
+            </p>
 
-<label>
-FULL NAME
-</label>
 
-<input
-id="name"
-type="text"
-placeholder="Aapka poora naam"
-required>
+            <div class="steps">
 
-</div>
+                <div class="step">
 
+                    <span class="step-number">
+                        1
+                    </span>
 
+                    Details form mein bhariye
 
-<div class="form-row">
+                </div>
 
-<div class="form-group">
 
-<label>
-PHONE NUMBER
-</label>
+                <div class="step">
 
-<input
-id="phone"
-type="tel"
-maxlength="10"
-pattern="[0-9]{10}"
-placeholder="10 digit mobile number"
-required>
+                    <span class="step-number">
+                        2
+                    </span>
 
-</div>
+                    WhatsApp par application bhejiye
 
+                </div>
 
 
-<div class="form-group">
+                <div class="step">
 
-<label>
-AGE
-</label>
+                    <span class="step-number">
+                        3
+                    </span>
 
-<input
-id="age"
-type="number"
-min="18"
-max="60"
-placeholder="Age"
-required>
+                    Recruiter aapse contact karega
 
-</div>
+                </div>
 
-</div>
+            </div>
 
+        </div>
 
 
-<div class="form-row">
 
-<div class="form-group">
+        <div class="form">
 
-<label>
-CITY
-</label>
+            <form id="applicationForm">
 
-<input
-id="city"
-type="text"
-placeholder="Aapka shehar"
-required>
 
-</div>
+                <div class="form-group">
 
+                    <label>
+                        FULL NAME
+                    </label>
 
+                    <input
+                        id="name"
+                        type="text"
+                        placeholder="Aapka poora naam"
+                        required
+                    >
 
-<div class="form-group">
+                </div>
 
-<label>
-EXPERIENCE
-</label>
 
-<input
-id="experience"
-type="text"
-placeholder="Delivery / Logistics experience">
 
-</div>
+                <div class="form-row">
 
-</div>
+                    <div class="form-group">
 
+                        <label>
+                            PHONE NUMBER
+                        </label>
 
+                        <input
+                            id="phone"
+                            type="tel"
+                            maxlength="10"
+                            pattern="[0-9]{10}"
+                            placeholder="10 digit mobile number"
+                            required
+                        >
 
-<div class="form-group">
+                    </div>
 
-<label>
-ADDRESS
-</label>
 
-<textarea
-id="address"
-placeholder="Poora address"
-required></textarea>
+                    <div class="form-group">
 
-</div>
+                        <label>
+                            AGE
+                        </label>
 
+                        <input
+                            id="age"
+                            type="number"
+                            min="18"
+                            max="60"
+                            placeholder="Age"
+                            required
+                        >
 
+                    </div>
 
-<div class="form-group">
+                </div>
 
-<label>
-DRIVING LICENCE
-</label>
 
 
-<div class="radio-row">
+                <div class="form-row">
 
-<label class="radio">
+                    <div class="form-group">
 
-<input
-type="radio"
-name="licence"
-value="Available"
-required>
+                        <label>
+                            CITY
+                        </label>
 
-Available
+                        <input
+                            id="city"
+                            type="text"
+                            placeholder="Aapka shehar"
+                            required
+                        >
 
-</label>
+                    </div>
 
 
-<label class="radio">
+                    <div class="form-group">
 
-<input
-type="radio"
-name="licence"
-value="Not Available">
+                        <label>
+                            EXPERIENCE
+                        </label>
 
-Not Available
+                        <input
+                            id="experience"
+                            type="text"
+                            placeholder="Delivery / Logistics experience"
+                        >
 
-</label>
+                    </div>
 
-</div>
+                </div>
 
-</div>
 
 
+                <div class="form-group">
 
-<button
-type="submit"
-class="btn btn-orange submit">
+                    <label>
+                        ADDRESS
+                    </label>
 
-WhatsApp par Apply Karo →
+                    <textarea
+                        id="address"
+                        placeholder="Poora address"
+                        required
+                    ></textarea>
 
-</button>
+                </div>
 
 
-<div class="form-note">
 
-Submit karte hi WhatsApp chat open hogi.
+                <div class="form-group">
 
-</div>
+                    <label>
+                        DRIVING LICENCE
+                    </label>
 
 
-</form>
+                    <div class="radio-row">
 
-</div>
+                        <label class="radio">
 
-</div>
+                            <input
+                                type="radio"
+                                name="licence"
+                                value="Available"
+                                required
+                            >
+
+                            Available
+
+                        </label>
+
+
+                        <label class="radio">
+
+                            <input
+                                type="radio"
+                                name="licence"
+                                value="Not Available"
+                            >
+
+                            Not Available
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary submit-button"
+                >
+                    WhatsApp par Apply Karo →
+                </button>
+
+
+                <div class="form-note">
+
+                    Submit karte hi WhatsApp chat open hogi.
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
 
 </div>
 
@@ -2013,100 +2003,99 @@ Submit karte hi WhatsApp chat open hogi.
 
 <div class="container">
 
+    <div class="section-heading">
 
-<div class="section-heading">
+        <span class="section-tag">
+            How It Works
+        </span>
 
-    <span class="section-tag">
-        How It Works
-    </span>
+        <h2>
+            Apply se earning tak.
+        </h2>
 
-    <h2>
-        Apply se earning tak.
-    </h2>
-
-</div>
-
-
-
-<div class="how-grid">
-
-
-<div class="how-card glass">
-
-    <div class="how-icon">
-        1
     </div>
 
-    <h3>
-        Apply
-    </h3>
-
-    <p>
-        Form bhariye ya WhatsApp
-        par connect kijiye.
-    </p>
-
-</div>
 
 
+    <div class="steps-grid">
 
-<div class="how-card glass">
 
-    <div class="how-icon">
-        2
+        <div class="step-card glass">
+
+            <div class="step-icon">
+                1
+            </div>
+
+            <h3>
+                Apply
+            </h3>
+
+            <p>
+                Form bhariye ya WhatsApp par
+                connect kijiye.
+            </p>
+
+        </div>
+
+
+
+        <div class="step-card glass">
+
+            <div class="step-icon">
+                2
+            </div>
+
+            <h3>
+                Get Verified
+            </h3>
+
+            <p>
+                Basic details aur documents
+                verify honge.
+            </p>
+
+        </div>
+
+
+
+        <div class="step-card glass">
+
+            <div class="step-icon">
+                3
+            </div>
+
+            <h3>
+                Start Delivering
+            </h3>
+
+            <p>
+                Onboarding ke baad delivery
+                start kijiye.
+            </p>
+
+        </div>
+
+
+
+        <div class="step-card glass">
+
+            <div class="step-icon">
+                4
+            </div>
+
+            <h3>
+                Receive Payout
+            </h3>
+
+            <p>
+                15 days payout cycle ke
+                according payment paaiye.
+            </p>
+
+        </div>
+
+
     </div>
-
-    <h3>
-        Get Verified
-    </h3>
-
-    <p>
-        Basic details aur documents
-        verify honge.
-    </p>
-
-</div>
-
-
-
-<div class="how-card glass">
-
-    <div class="how-icon">
-        3
-    </div>
-
-    <h3>
-        Start Delivering
-    </h3>
-
-    <p>
-        Onboarding ke baad
-        delivery start kijiye.
-    </p>
-
-</div>
-
-
-
-<div class="how-card glass">
-
-    <div class="how-icon">
-        4
-    </div>
-
-    <h3>
-        Receive Payout
-    </h3>
-
-    <p>
-        15 days payout cycle ke
-        according payment paaiye.
-    </p>
-
-</div>
-
-
-</div>
 
 </div>
 
@@ -2115,226 +2104,219 @@ Submit karte hi WhatsApp chat open hogi.
 
 
 <!-- =========================
-     TEAM / CONTACT
+     CONTACT
 ========================= -->
 
 <section id="contact">
 
 <div class="container">
 
+    <div class="section-heading">
 
-<div class="section-heading">
+        <span class="section-tag">
+            Contact OneNine
+        </span>
 
-    <span class="section-tag">
-        Contact OneNine
-    </span>
+        <h2>
+            OneNine Team se judiye.
+        </h2>
 
-    <h2>
-        OneNine Team se judiye.
-    </h2>
+        <p>
+            Recruitment aur customer care ke liye
+            neeche diye gaye contacts par directly
+            connect karein.
+        </p>
 
-    <p>
-        Recruitment aur customer care ke liye
-        neeche diye gaye official contacts
-        par directly connect karein.
-    </p>
-
-</div>
-
-
-
-<div class="team-grid">
-
-
-<!-- FOUNDER -->
-
-<div class="team-card glass">
-
-    <div class="team-icon">
-        👤
     </div>
 
-    <span class="team-role">
-        Founder
-    </span>
-
-    <h3>
-        Anuj Panchal
-    </h3>
-
-    <p>
-        OneNine Logistics
-    </p>
-
-    <a href="mailto:oneninerecruitment@gmail.com">
-        oneninerecruitment@gmail.com
-    </a>
-
-</div>
 
 
+    <div class="team-grid">
 
-<!-- CO-FOUNDER -->
 
-<div class="team-card glass">
+        <!-- FOUNDER -->
 
-    <div class="team-icon">
-        🤝
+        <div class="team-card glass">
+
+            <div class="team-icon">
+                👤
+            </div>
+
+            <span class="role">
+                Founder
+            </span>
+
+            <h3>
+                Anuj Panchal
+            </h3>
+
+            <p>
+                OneNine Logistics
+            </p>
+
+            <a href="mailto:oneninerecruitment@gmail.com">
+                oneninerecruitment@gmail.com
+            </a>
+
+        </div>
+
+
+
+        <!-- CO FOUNDER -->
+
+        <div class="team-card glass">
+
+            <div class="team-icon">
+                🤝
+            </div>
+
+            <span class="role">
+                Co-Founder
+            </span>
+
+            <h3>
+                Atul Sen
+            </h3>
+
+            <p>
+                OneNine Logistics
+            </p>
+
+            <a href="mailto:caresonenine@gmail.com">
+                caresonenine@gmail.com
+            </a>
+
+        </div>
+
+
+
+        <!-- RECRUITMENT -->
+
+        <div class="team-card glass">
+
+            <div class="team-icon">
+                📋
+            </div>
+
+            <span class="role">
+                Recruitment Team
+            </span>
+
+            <h3>
+                Join Our Team
+            </h3>
+
+            <p>
+                Delivery Partner Recruitment
+            </p>
+
+            <a href="tel:+916262247645">
+                +91 62622 47645
+            </a>
+
+            <a href="mailto:oneninerecruitment@gmail.com">
+                oneninerecruitment@gmail.com
+            </a>
+
+        </div>
+
+
+
+        <!-- CARES -->
+
+        <div class="team-card glass">
+
+            <div class="team-icon">
+                💬
+            </div>
+
+            <span class="role">
+                Cares Team
+            </span>
+
+            <h3>
+                Customer Support
+            </h3>
+
+            <p>
+                General Queries & Support
+            </p>
+
+            <a href="tel:+919111980052">
+                +91 91119 80052
+            </a>
+
+            <a href="mailto:caresonenine@gmail.com">
+                caresonenine@gmail.com
+            </a>
+
+        </div>
+
+
     </div>
 
-    <span class="team-role">
-        Co-Founder
-    </span>
-
-    <h3>
-        Atul Sen
-    </h3>
-
-    <p>
-        OneNine Logistics
-    </p>
-
-    <a href="mailto:caresonenine@gmail.com">
-        caresonenine@gmail.com
-    </a>
-
-</div>
 
 
+    <!-- CONTACT SUMMARY -->
 
-<!-- RECRUITMENT -->
+    <div class="contact-bar glass">
 
-<div class="team-card glass">
+        <div>
 
-    <div class="team-icon">
-        📋
+            <strong>
+                Recruitment Email
+            </strong>
+
+            <span>
+                oneninerecruitment@gmail.com
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                Cares Email
+            </strong>
+
+            <span>
+                caresonenine@gmail.com
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                Recruitment Number
+            </strong>
+
+            <span>
+                +91 62622 47645
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                Cares Number
+            </strong>
+
+            <span>
+                +91 91119 80052
+            </span>
+
+        </div>
+
     </div>
-
-    <span class="team-role">
-        Recruitment Team
-    </span>
-
-    <h3>
-        Join Our Team
-    </h3>
-
-    <p>
-        Delivery Partner Recruitment
-    </p>
-
-    <a href="tel:+916262247645">
-        +91 62622 47645
-    </a>
-
-    <a href="mailto:oneninerecruitment@gmail.com">
-        oneninerecruitment@gmail.com
-    </a>
-
-</div>
-
-
-
-<!-- CARES -->
-
-<div class="team-card glass">
-
-    <div class="team-icon">
-        💬
-    </div>
-
-    <span class="team-role">
-        Cares Team
-    </span>
-
-    <h3>
-        Customer Support
-    </h3>
-
-    <p>
-        General Queries & Support
-    </p>
-
-    <a href="tel:+919111980052">
-        +91 91119 80052
-    </a>
-
-    <a href="mailto:caresonenine@gmail.com">
-        caresonenine@gmail.com
-    </a>
-
-</div>
-
-
-</div>
-
-
-
-<!-- CONTACT STRIP -->
-
-<div class="contact-strip glass">
-
-
-<div>
-
-<strong>
-Recruitment Email
-</strong>
-
-<span>
-oneninerecruitment@gmail.com
-</span>
-
-</div>
-
-
-
-<div>
-
-<strong>
-Cares Email
-</strong>
-
-<span>
-caresonenine@gmail.com
-</span>
-
-</div>
-
-
-
-<div>
-
-<strong>
-Recruitment Number
-</strong>
-
-<span>
-+91 62622 47645
-</span>
-
-</div>
-
-
-
-<div>
-
-<strong>
-Cares Number
-</strong>
-
-<span>
-+91 91119 80052
-</span>
-
-</div>
-
-
-</div>
 
 </div>
 
 </section>
-
 
 </main>
 
@@ -2348,41 +2330,38 @@ Cares Number
 
 <div class="container">
 
-<div class="footer">
+    <div class="footer">
 
 
-<div>
+        <div>
 
-<div class="logo">
+            <div class="logo">
 
-    <div class="logo-mark">
-        O9
+                <div class="logo-box">
+                    O9
+                </div>
+
+                <div class="logo-name">
+                    one<span>nine</span> Logistics
+                </div>
+
+            </div>
+
+
+            <p>
+                Deliver more. Earn more.
+                Grow with OneNine.
+            </p>
+
+        </div>
+
+
+        <a href="#apply" class="btn btn-primary">
+            Apply Now →
+        </a>
+
+
     </div>
-
-    <div class="logo-name">
-        onenine <span>Logistics</span>
-    </div>
-
-</div>
-
-
-<p>
-Deliver more. Earn more. Grow with OneNine.
-</p>
-
-</div>
-
-
-
-<a href="#apply"
-class="btn btn-orange">
-
-Apply Now →
-
-</a>
-
-
-</div>
 
 </div>
 
@@ -2391,7 +2370,7 @@ Apply Now →
 
 
 <!-- =========================
-     WHATSAPP SCRIPT
+     JAVASCRIPT
 ========================= -->
 
 <script>
@@ -2404,40 +2383,54 @@ document
 
 
     const name =
-    document.getElementById("name")
-    .value.trim();
+        document
+        .getElementById("name")
+        .value
+        .trim();
 
 
     const phone =
-    document.getElementById("phone")
-    .value.trim();
+        document
+        .getElementById("phone")
+        .value
+        .trim();
 
 
     const age =
-    document.getElementById("age")
-    .value.trim();
+        document
+        .getElementById("age")
+        .value
+        .trim();
 
 
     const city =
-    document.getElementById("city")
-    .value.trim();
+        document
+        .getElementById("city")
+        .value
+        .trim();
 
 
     const experience =
-    document.getElementById("experience")
-    .value.trim()
-    || "Not mentioned";
+        document
+        .getElementById("experience")
+        .value
+        .trim()
+        ||
+        "Not mentioned";
 
 
     const address =
-    document.getElementById("address")
-    .value.trim();
+        document
+        .getElementById("address")
+        .value
+        .trim();
 
 
     const licence =
-    document.querySelector(
-        'input[name="licence"]:checked'
-    );
+        document
+        .querySelector(
+            'input[name="licence"]:checked'
+        );
 
 
     if(!licence){
@@ -2447,7 +2440,6 @@ document
         );
 
         return;
-
     }
 
 
@@ -2471,19 +2463,21 @@ Driving Licence: ${licence.value}`;
 
 
     /*
-      Recruitment Team WhatsApp
-      Number: 6262247645
+      Recruitment WhatsApp Number
     */
 
     const whatsappNumber =
-    "916262247645";
+        "916262247645";
 
 
     const whatsappURL =
-    "https://wa.me/" +
-    whatsappNumber +
-    "?text=" +
-    encodeURIComponent(message);
+        "https://wa.me/"
+        +
+        whatsappNumber
+        +
+        "?text="
+        +
+        encodeURIComponent(message);
 
 
     window.open(
